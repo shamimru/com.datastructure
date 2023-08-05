@@ -12,12 +12,12 @@ public class End_insertion {
 		}
 	}
 	Node head=null;
-	
+	Scanner sc=new Scanner(System.in);
 	public void Creation() {
 		int data,n;
 		do {
 			System.out.println("Enter a data for end");
-			Scanner sc=new Scanner(System.in);
+		
 			data=sc.nextInt();
 			Node new_node=new Node(data);
 			
@@ -33,6 +33,7 @@ public class End_insertion {
 				temp.next=new_node;
 			}
 			
+			SpacipicPosition();
 			
 			System.out.println("Want more, press 1");
 			n=sc.nextInt();
@@ -48,6 +49,22 @@ public class End_insertion {
 				temp=temp.next;
 			}
 		}
+	}
+	
+	public void SpacipicPosition() {
+		int n,data;
+		Node temp=head;
+		System.out.println("Enter the position to insert");
+		n=sc.nextInt();
+		System.out.println("Enter your data");
+		data=sc.nextInt();
+		Node new_node=new Node(data);
+				
+		for(int i=0;i<(n-2); i++) {
+			temp=temp.next;
+		}
+		new_node.next=temp;
+		temp.next=new_node;
 	}
 
 	public static void main(String[] args) {
